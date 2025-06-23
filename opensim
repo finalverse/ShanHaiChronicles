@@ -1,0 +1,136 @@
+OpenSim + Firestorm 本地元宇宙搭建详细教程（macOS Apple Silicon）
+
+一、环境准备
+
+1. 安装 .NET SDK 8
+
+最稳方法:
+	1.	访问 Microsoft .NET 官网
+	2.	下载 macOS Arm64 版本的 .pkg 包：
+	•	例如: dotnet-sdk-8.0.410-osx-arm64.pkg
+	3.	双击安装
+
+确认安装成功：
+
+dotnet --list-sdks
+
+显示:
+
+8.0.410 [/usr/local/share/dotnet/sdk]
+
+2. 下载 OpenSim 源码
+
+git clone https://github.com/opensim/opensim.git
+cd opensim
+
+3.一些杂七杂八
+dotnet tool install -g upgrade-assistant
+upgrade-assistant upgrade Prebuild/src/Prebuild.csproj
+export PATH="$PATH:~/.dotnet/tools"
+upgrade-assistant upgrade Prebuild/src/Prebuild.csproj
+
+3. 编译 OpenSim
+
+./runprebuild.sh
+cp OpenSim.ini.example OpenSim.ini
+cp StandaloneCommon.ini.example StandaloneCommon.ini
+brew install mono-libgdiplus
+ls /opt/homebrew/lib/libgdiplus.dylib
+export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
+
+
+显示:
+
+Build succeeded.
+0 Warning(s)
+0 Error(s)
+
+二、启动 OpenSim 服务
+
+./opensim.sh
+
+New region name []: MyRegion
+RegionUUID [uuid]: (Enter)
+Region Location [1000,1000]: (Enter)
+Internal IP address [0.0.0.0]: (Enter)
+Internal port [9000]: (Enter)
+Resolve hostname to IP on start [False]: (Enter)
+External host name [SYSTEMIP]: 127.0.0.1
+
+然后创建地产:
+
+New estate name [My Estate]: (Enter)
+
+三、创建用户
+
+create user
+First name [Default]: zaran
+Last name [User]: zhang
+Password: ******
+Email []: 3118890025@qq.com
+User ID []: (Enter)
+Model name []: (Enter)
+
+显示:
+
+Account zaran zhang ... created successfully
+
+四、安装 Firestorm Viewer
+	1.	访问: https://www.firestormviewer.org/
+	2.	下载 Firestorm for OpenSim/macOS (ARM)
+	3.	安装后启动
+
+五、配置 Grid 连接
+	1.	主界面 > 点击 Grid: Second Life 后面 “+ Click to add more grids”
+	2.	输入 Login URI: http://127.0.0.1:9000/
+	3.	点击 Apply
+	4.	Grid 名: the lost continent of hippo (可自定义)
+
+如果无效：去 “Firestorm > Preferences > Opensim > Grid Manager” 手动添加:
+
+Grid Name: MyOpenSim
+Grid URI: http://127.0.0.1:9000/
+
+	5.	选择 Grid > 输入用户名：
+
+Username: zaran zhang
+Password: ******
+
+	6.	点击 Login
+
+六、进入世界 & 配置
+
+服务器日志显示:
+
+Found destination MyRegion, endpoint 127.0.0.1:9000
+Incoming client zaran zhang in region MyRegion
+Complete movement of zaran zhang into MyRegion <128,128,0>
+
+如果最后 Segmentation fault:
+
+应该是 FMOD 音频或 mono 不兼容问题
+
+开始时已成功进入，可继续配置
+
+七、推荐配置命令
+
+set home zaran zhang MyRegion
+create appearance zaran zhang
+
+八、扩展区域
+
+编辑 Regions/Regions.ini，增加新区:
+
+[MyRegion2]
+RegionUUID = 12345678-1234-1234-1234-123456789012
+Location = 1001,1000
+InternalAddress = 0.0.0.0
+InternalPort = 9001
+ExternalHostName = 127.0.0.1
+
+
+⸻
+
+总结
+
+至此你已成功启动了 OpenSim 服务，完成了 Firestorm Viewer 登入，并创建了一个实际地图和用户环境。如果需要添加剧情/剧本/人物形象或 AI 功能，可继续培育 Finalverse 功能化。
