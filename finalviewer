@@ -1,0 +1,78 @@
+你可以完全不集成 FMOD，只要你不需要 Firestorm Viewer 里的 FMOD Studio（主要是3D声音、空间音效等功能）。Firestorm 的官方文档已经考虑了这一点，专门为开源用户准备了不集成 FMOD 和 KDU 的“ReleaseFS_open”方案。这样流程更简单，不用折腾 FMOD 库和配置。
+
+⸻
+
+macOS下 Firestorm 编译（不集成 FMOD/KDU）最简流程
+
+以下是最小步骤清单，不包含FMOD、KDU：
+
+1. 准备开发环境
+	1.	Xcode 11.7
+下载：Xcode 11.7
+装好后运行一次。
+
+clang --version  # 应该是Apple clang version 11.x
+
+
+	2.	CMake 3.16+
+下载 CMake ，拖进 /Applications，装命令行：
+
+sudo /Applications/CMake.app/Contents/MacOS/CMake --install
+cmake --version  # 确认3.16或更高
+
+
+	3.	pip (python3)
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python3 get-pip.py
+
+
+	4.	Autobuild
+
+pip3 install --user autobuild
+echo '~/Library/Python/3.7/bin/' | sudo tee /etc/paths.d/99-autobuild
+export PATH=$PATH:~/Library/Python/3.7/bin/
+autobuild --version  # 确认3.9.3+
+
+
+
+2. 获取源码和变量
+
+mkdir ~/firestorm
+cd ~/firestorm
+git clone https://github.com/finalverse/finalviewer.git
+git clone https://github.com/FirestormViewer/fs-build-variables.git
+pip install autobuild
+pip install llbase
+
+把变量路径写入 shell 配置：
+
+export AUTOBUILD_VARIABLES_FILE=/Users/zhangjingran/finalverseProj/finalviewer/fs-build-variables/variables  # 临时生效
+
+3. 配置和编译（ReleaseFS_open方案，无FMOD/KDU）
+
+配置（只需一次）
+
+cd ~/finalverseProj/finalviewer
+
+/opt/homebrew/bin/python3 -m pip install --break-system-packages llsd llbase（天坑后期填）
+
+autobuild configure -A 64 -c ReleaseFS_open -- -DLL_TESTS:BOOL=FALSE -DFMODSTUDIO:BOOL=FALSE
+
+
+
+⸻
+
+总结：不集成FMOD的注意点
+	•	功能损失：没FMOD就没有3D环绕声，空间音效这些FMOD高级音频。
+但普通用户聊天、背景音乐这些基础音效依然可用（用openal或默认音频引擎）。
+	•	构建过程更简单：不会提示fmod相关的找不到。
+	•	未来要加FMOD：再装 FMOD Studio SDK，参照“FMOD Studio using autobuild”部分手动集成即可。
+
+⸻
+
+如果你完全不想碰FMOD，就只要用 ReleaseFS_open，并且编译时永远不用带 --fmodstudio 之类参数即可。整个流程不会有任何fmod相关的错误或打扰。
+
+⸻
+
+如还有具体报错可贴上来看～
