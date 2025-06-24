@@ -7,7 +7,7 @@ OpenSim + Firestorm 本地元宇宙搭建详细教程（macOS Apple Silicon）
 最稳方法:
 	1.	访问 Microsoft .NET 官网
 	2.	下载 macOS Arm64 版本的 .pkg 包：
-	•	例如: dotnet-sdk-8.0.410-osx-arm64.pkg
+	•	例如: dotnet-sdk-8.0.410-osx-arm64.pkg   "https://dotnet.microsoft.com/en-us/download/dotnet/8.0"
 	3.	双击安装
 
 确认安装成功：
