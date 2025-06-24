@@ -32,6 +32,7 @@ upgrade-assistant upgrade Prebuild/src/Prebuild.csproj
 3. 编译 OpenSim
 
 ./runprebuild.sh
+./compile.sh
 cp OpenSim.ini.example OpenSim.ini
 cp StandaloneCommon.ini.example StandaloneCommon.ini
 brew install mono-libgdiplus
