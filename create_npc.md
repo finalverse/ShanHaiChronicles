@@ -51,7 +51,7 @@ default
 You cannot create objects here.
 ```
 - **solution**:
-  - Check land permissions: If you are not the owner and you can not change it , you can ,,,,
+ - Check land permissions: If you are not the owner and you can not change it , you can ,,,,
     ```
     land clear  //run it in your console,then restart MutSea.
     ```
