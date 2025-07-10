@@ -26,7 +26,7 @@ cd opensim
 3.一些杂七杂八
 dotnet tool install -g upgrade-assistant
 upgrade-assistant upgrade Prebuild/src/Prebuild.csproj
-export PATH="$PATH:~/.dotnet/tools"
+export PATH="$PATH:$HOME/.dotnet/tools"
 upgrade-assistant upgrade Prebuild/src/Prebuild.csproj
 
 3. 编译 OpenSim
