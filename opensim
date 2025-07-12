@@ -48,6 +48,9 @@ Build succeeded.
 
 二、启动 OpenSim 服务
 
+cd bin
+ln -s lib64/libopenjpeg-dotnet.dylib libopenjpeg.dylib
+
 ./opensim.sh
 
 New region name []: MyRegion
