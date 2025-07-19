@@ -1,6 +1,6 @@
 ### Here is a method for everyone. Make API requests to the local OpenSim proxy: 
 set up a small proxy locally, for example http://myproxy.local/openai, let llHTTPRequest access the proxy → the proxy forwards to OpenAI.
-#### **(1) open MutSea/bin/config-include/osslEnable.ini **  
+#### **(1) open MutSea/bin/config-include/osslEnable.ini**  
 - **Find moudle call [OSSL]**
 - **modify**:  
 ```
