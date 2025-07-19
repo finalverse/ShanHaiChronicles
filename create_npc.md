@@ -1,4 +1,4 @@
-#### **(1) open MutSea/bin/OpenSim.ini **  
+#### **(1) open MutSea/bin/OpenSim.ini**  
 - **Find moudle call [NPC]**
 - **modify**:  
   ```
@@ -6,7 +6,7 @@
     Enabled = true
     MaxNumberNPCsPerScene = 40 
   ```  
-#### **(2) open MutSea/bin/config-include/osslEnable.ini **  
+#### **(2) open MutSea/bin/config-include/osslEnable.ini**  
 - **Find moudle call [OSSL]**
 - **modify**:  
   ```
@@ -20,7 +20,7 @@
       Allow_osNpcStand = "PARCEL_OWNER,ESTATE_MANAGER,ESTATE_OWNER"
       Allow_osNpcSit = "PARCEL_OWNER,ESTATE_MANAGER,ESTATE_OWNER"
   ```
-#### **(3) Use LSL script to add NPC **
+#### **(3) Use LSL script to add NPC**
 - **Use finalverse storm to login your OpenSim grid and get in your region**
 - **Create a prim as a 'script host'**:
   - Press the shortcut key Ctrl+B (or go to the menu Build > Build)
@@ -45,7 +45,7 @@ default
  ```
 - **save and exit. Then click the box, you can see the NPC.**
 
-#### **(4) If you do not have authority of the land , you can run the following command in your console **
+#### **(4) If you do not have authority of the land , you can run the following command in your console**
 - **Error**:
 ```
 You cannot create objects here.
@@ -55,7 +55,7 @@ You cannot create objects here.
     ```
     land clear  //run it in your console,then restart MutSea.
     ```
-#### **(5) Ensure your account is owner. If not , you can change it **  
+#### **(5) Ensure your account is owner. If not , you can change it**  
   ```
 estate show
 show users
