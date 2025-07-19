@@ -1,4 +1,4 @@
-### Here is a method for everyone. Make API requests to the local OpenSim proxy: 
+### Here is a method for everyone. Make API requests to the local MutSea proxy: 
 set up a small proxy locally, for example http://myproxy.local/openai, let llHTTPRequest access the proxy → the proxy forwards to OpenAI.
 #### **(1) open MutSea/bin/config-include/osslEnable.ini**  
 - **Find moudle call [OSSL]**
@@ -73,7 +73,7 @@ npm init -y
 npm install express axios
 node openai-proxy.js
 ```
-- **change your opensim prim's script**
+- **change your mutsea prim's script. (prim I mensioned in ./create_npc.md**
 ```
 key npc = NULL_KEY;
 key myAvatarKey = "your UUID";
