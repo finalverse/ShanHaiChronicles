@@ -1,3 +1,5 @@
+####  **open /Users/zhangjingran/finalverseProj/mutsea-o-1/MutSea/Region/OptionalModules/World/NPC/NPCModule.cs**
+```
 public void AddRegion(Scene scene)
 {
     if (!Enabled)
@@ -56,3 +58,4 @@ public void AddRegion(Scene scene)
             // 可以保留空实现，或者记录日志
             m_log.InfoFormat("[NPCModule]: RegionLoaded for '{0}'", scene.RegionInfo.RegionName);
         }
+```
