@@ -19,7 +19,6 @@
 - [Practice Exercises (with Hints)](#practice-exercises-with-hints)  
 - [Command Cheat Sheet](#command-cheat-sheet)  
 - [References & Further Reading](#references--further-reading)  
-- [(Optional) Libra2 Adaptation Tips](#optional-libra2-adaptation-tips)
 
 ---
 
