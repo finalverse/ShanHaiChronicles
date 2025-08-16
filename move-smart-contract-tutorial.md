@@ -328,20 +328,5 @@ aptos account fund-with-faucet --account default
 
 ---
 
-## (Optional) Libra2 Adaptation Tips
-
-If you plan to reuse this tutorial for **Libra2**:
-
-| Action  | Aptos CLI                       | Libra2 CLI (example)      |
-|--------:|----------------------------------|---------------------------|
-| Compile | `aptos move compile`            | `libra2 move compile`     |
-| Publish | `aptos move publish`            | `libra2 move publish`     |
-| Run     | `aptos move run`                | `libra2 move run`         |
-
-- Keep package names / named addresses unchanged to maximize code & test reuse  
-- Replace Explorer/Faucet/Network selections per each chain’s docs
-
----
-
 Good luck compiling and happy transacting 🎯  
-If you’d like, I can also split this into an **8-part series** or add screenshots/GIFs for a visual walkthrough.
+
